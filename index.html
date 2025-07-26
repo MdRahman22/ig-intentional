@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>IG Intentional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(console.error);
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>IG Intentional</h1>
+  <nav>
+    <button id="to-setup" class="link">Plan</button>
+    <button id="to-stats" class="link">Stats</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- SETUP -->
+  <section id="setup" class="screen active">
+    <h2>Plan your Instagram session</h2>
+
+    <label>Intention</label>
+    <select id="intention">
+      <option value="DM 1 friend">DM 1 friend</option>
+      <option value="Check 2 creators then exit">Check 2 creators then exit</option>
+      <option value="Post a story">Post a story</option>
+      <option value="Save 3 useful posts">Save 3 useful posts</option>
+      <option value="Custom">Custom…</option>
+    </select>
+
+    <input id="customIntention" class="hidden" placeholder="Type your intention" />
+
+    <label>Time‑box (minutes)</label>
+    <select id="minutes">
+      <option>5</option><option>8</option><option selected>10</option>
+      <option>12</option><option>15</option>
+    </select>
+
+    <label>Nudge every</label>
+    <select id="nudge">
+      <option value="0">Off</option>
+      <option value="120">2 min</option>
+      <option value="180" selected>3 min</option>
+      <option value="300">5 min</option>
+    </select>
+
+    <button id="start">Start & Open Instagram</button>
+    <p class="hint">On phone this tries to open the Instagram app. On laptop it opens instagram.com.</p>
+  </section>
+
+  <!-- SESSION -->
+  <section id="session" class="screen">
+    <h2>Session in progress</h2>
+    <div id="countdown">00:00</div>
+    <div id="bar"><div id="fill"></div></div>
+    <div class="actions">
+      <button id="openIG">Open Instagram</button>
+      <button id="snooze">+1 min</button>
+      <button id="endEarly">End now</button>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section id="review" class="screen">
+    <h2>How did it go?</h2>
+    <p>Did you follow your intention?</p>
+    <div class="choices">
+      <button data-did="yes">Yes</button>
+      <button data-did="no">Not really</button>
+    </div>
+    <p>Your mood now:</p>
+    <input type="range" min="1" max="5" value="3" id="mood">
+    <div>
+      <button id="saveLog">Save</button>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" class="screen">
+    <h2>Sessions</h2>
+    <div id="summary"></div>
+    <ul id="list"></ul>
+    <button id="export">Export CSV</button>
+    <button id="clear">Clear data</button>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

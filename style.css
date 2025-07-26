@@ -1,0 +1,27 @@
+:root { --accent:#4b6fff; }
+* { box-sizing:border-box; }
+body { font-family: system-ui, sans-serif; margin:0; background:#111; color:#f7f7f7; }
+header { display:flex; justify-content:space-between; align-items:center;
+         padding:1rem; border-bottom:1px solid #333; }
+h1 { font-size:1.1rem; margin:0; }
+.link { background:none; border:none; color:#9dc1ff; text-decoration:underline; cursor:pointer; }
+main { padding:1rem; }
+label { display:block; margin-top:.75rem; color:#cfcfcf; }
+select, input, button { width:100%; padding:.8rem; margin-top:.25rem; border-radius:.6rem; border:1px solid #333; background:#1b1b1b; color:#fff; }
+button { background:var(--accent); border:none; }
+button:disabled { opacity:.6; }
+.hint { color:#aaa; font-size:.85rem; margin-top:.5rem; }
+.hidden { display:none; }
+
+.screen { display:none; }
+.screen.active { display:block; }
+
+#countdown { font-size:3rem; text-align:center; margin:1rem 0; }
+#bar { height:10px; background:#333; border-radius:999px; overflow:hidden; }
+#fill { height:100%; width:0%; background:var(--accent); transition:width .5s linear; }
+
+.actions { display:flex; gap:.5rem; margin-top:1rem; }
+.actions button { flex:1; }
+
+.choices { display:flex; gap:.5rem; margin:.5rem 0; }
+.choices button { flex:1; background:#2a2a2a; }
